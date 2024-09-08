@@ -7,68 +7,28 @@ body {
     color: #333;
 }
 
+/* Общие стили для контейнеров */
 .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem 0;
-}
-
-/* Шапка */
-header {
-    background-color: #282c34;
-    padding: 1rem 0;
-}
-
-h1 {
-    text-align: center;
-    color: #ffffff;
-}
-
-nav ul {
     display: flex;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
 }
 
-nav li {
-    margin: 0 1rem;
-}
-
-nav a {
-    color: #61dafb;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-/* Основное содержимое */
-main {
-    padding: 2rem 0;
-}
-
-section {
-    background: #ffffff;
+/* Общие стили для элементов */
+.item {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    margin-bottom: 2rem;
-}
-
-h2 {
-    color: #333;
-    margin-top: 0;
+    padding: 1rem;
+    flex: 1 1 calc(33.333% - 1rem); /* Три элемента в ряд */
+    box-sizing: border-box;
 }
 
 /* Расписание */
 .schedule-container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 1rem;
 }
 
@@ -77,20 +37,13 @@ h2 {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 1rem;
-}
-
-.schedule-item h3 {
-    margin: 0 0 0.5rem 0;
-}
-
-.schedule-item p {
-    margin: 0.5rem 0;
+    flex: 1 1 calc(33.333% - 1rem);
 }
 
 /* Домашние задания */
 .homework-container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 1rem;
 }
 
@@ -99,6 +52,7 @@ h2 {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 1rem;
+    flex: 1 1 calc(33.333% - 1rem);
 }
 
 .homework-item a {
@@ -113,7 +67,7 @@ h2 {
 /* Преподаватели */
 .teachers-container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 1rem;
 }
 
@@ -122,12 +76,13 @@ h2 {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 1rem;
+    flex: 1 1 calc(33.333% - 1rem);
 }
 
 /* Новости */
 .news-container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 1rem;
 }
 
@@ -136,12 +91,13 @@ h2 {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 1rem;
+    flex: 1 1 calc(33.333% - 1rem);
 }
 
 /* Календарь */
 .calendar-container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 1rem;
 }
 
@@ -150,12 +106,13 @@ h2 {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 1rem;
+    flex: 1 1 calc(33.333% - 1rem);
 }
 
 /* Уведомления */
 .notifications-container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 1rem;
 }
 
@@ -164,12 +121,13 @@ h2 {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 1rem;
+    flex: 1 1 calc(33.333% - 1rem);
 }
 
 /* Перерывы */
 .breaks-container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 1rem;
 }
 
@@ -178,12 +136,13 @@ h2 {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 1rem;
+    flex: 1 1 calc(33.333% - 1rem);
 }
 
 /* Каникулы */
 .holidays-container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 1rem;
 }
 
@@ -192,6 +151,7 @@ h2 {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 1rem;
+    flex: 1 1 calc(33.333% - 1rem);
 }
 
 /* Подвал */
@@ -217,11 +177,7 @@ footer a:hover {
 
 /* Адаптивные стили */
 @media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-    }
-
-    nav li {
-        margin: 0.5rem 0;
+    .item {
+        flex: 1 1 calc(100% - 1rem); /* Один элемент на строку */
     }
 }
