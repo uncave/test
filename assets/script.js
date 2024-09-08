@@ -1,40 +1,56 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const scheduleBody = document.getElementById("schedule-body");
-    const homeworkList = document.getElementById("homework-list");
+    const scheduleTable = document.getElementById('schedule-table');
+    const homeworkTable = document.getElementById('homework-table');
 
-    // Загружаем расписание
-    scheduleData.forEach(daySchedule => {
-        daySchedule.lessons.forEach(lesson => {
-            const row = document.createElement("tr");
-            
-            const dayCell = document.createElement("td");
-            dayCell.textContent = daySchedule.day;
+    // Функция для загрузки расписания
+    function loadSchedule() {
+        scheduleData.forEach(day => {
+            let row = document.createElement('tr');
+            let dayCell = document.createElement('td');
+            dayCell.innerHTML = `<strong>${day.day}</strong>`;
             row.appendChild(dayCell);
-            
-            const timeCell = document.createElement("td");
-            timeCell.textContent = lesson.time;
-            row.appendChild(timeCell);
-            
-            const subjectCell = document.createElement("td");
-            subjectCell.textContent = lesson.subject;
-            row.appendChild(subjectCell);
-            
-            const teacherCell = document.createElement("td");
-            teacherCell.textContent = lesson.teacher;
-            row.appendChild(teacherCell);
-            
-            const roomCell = document.createElement("td");
-            roomCell.textContent = lesson.room;
-            row.appendChild(roomCell);
-            
-            scheduleBody.appendChild(row);
-        });
-    });
 
-    // Загружаем домашние задания
-    homeworkData.forEach(homework => {
-        const listItem = document.createElement("li");
-        listItem.textContent = `${homework.subject}: ${homework.task}`;
-        homeworkList.appendChild(listItem);
-    });
+            day.lessons.forEach(lesson => {
+                let lessonRow = document.createElement('tr');
+                let timeCell = document.createElement('td');
+                let subjectCell = document.createElement('td');
+                let roomCell = document.createElement('td');
+
+                timeCell.innerText = lesson.time;
+                subjectCell.innerText = lesson.subject;
+                roomCell.innerText = lesson.room;
+
+                lessonRow.appendChild(timeCell);
+                lessonRow.appendChild(subjectCell);
+                lessonRow.appendChild(roomCell);
+                scheduleTable.appendChild(lessonRow);
+            });
+        });
+    }
+
+    // Функция для загрузки домашних заданий
+    function loadHomework() {
+        homeworkData.forEach(day => {
+            let row = document.createElement('tr');
+            let dateCell = document.createElement('td');
+            dateCell.innerHTML = `<strong>${day.date}</strong>`;
+            row.appendChild(dateCell);
+
+            day.assignments.forEach(assignment => {
+                let assignmentRow = document.createElement('tr');
+                let subjectCell = document.createElement('td');
+                let descriptionCell = document.createElement('td');
+
+                subjectCell.innerText = assignment.subject;
+                descriptionCell.innerText = assignment.description;
+
+                assignmentRow.appendChild(subjectCell);
+                assignmentRow.appendChild(descriptionCell);
+                homeworkTable.appendChild(assignmentRow);
+            });
+        });
+    }
+
+    loadSchedule();
+    loadHomework();
 });
