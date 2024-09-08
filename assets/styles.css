@@ -66,24 +66,18 @@ h2 {
     margin-top: 0;
 }
 
-/* Календарь */
-#schedule-calendar {
-    display: flex;
-    flex-wrap: wrap;
+/* Расписание */
+#schedule-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
 }
 
-.calendar-day {
+.schedule-item {
     background: #f8f9fa;
     border: 1px solid #e1e1e1;
     border-radius: 8px;
     padding: 1rem;
-    width: calc(33.333% - 1rem); /* Три элемента в строке */
-    box-sizing: border-box;
-}
-
-.calendar-day h3 {
-    margin-top: 0;
 }
 
 /* Список элементов */
