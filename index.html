@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Учебный журнал</title>
+    <title>Электронный журнал</title>
     <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Учебный журнал</h1>
+            <h1>Электронный журнал</h1>
             <nav>
                 <ul>
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="about.html">О нас</a></li>
-                    <li><a href="contact.html">Контакты</a></li>
+                    <li><a href="#schedule">Расписание</a></li>
+                    <li><a href="#homework">Домашние задания</a></li>
+                    <li><a href="#teachers">Преподаватели</a></li>
                 </ul>
             </nav>
         </div>
@@ -23,20 +23,15 @@
         <div class="container">
             <section id="schedule">
                 <h2>Расписание</h2>
-                <div id="schedule-calendar">
-                    <div class="calendar-day" id="day-1">
-                        <h3>1 сентября</h3>
-                        <ul>
-                            <li>09:00 - Математика</li>
-                            <li>11:00 - Физика</li>
-                        </ul>
-                    </div>
-                    <!-- Добавьте больше дней по аналогии -->
-                </div>
+                <div id="schedule-container"></div>
             </section>
             <section id="homework">
                 <h2>Домашние задания</h2>
                 <ul id="homework-list"></ul>
+            </section>
+            <section id="teachers">
+                <h2>Преподаватели</h2>
+                <ul id="teachers-list"></ul>
             </section>
         </div>
     </main>
