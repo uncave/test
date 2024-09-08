@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,39 +17,144 @@
                     <li><a href="#teachers">Преподаватели</a></li>
                     <li><a href="#news">Новости</a></li>
                     <li><a href="#calendar">Календарь</a></li>
+                    <li><a href="#notifications">Уведомления</a></li>
+                    <li><a href="#breaks">Перерывы</a></li>
+                    <li><a href="#holidays">Каникулы</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     <main>
         <div class="container">
+            <!-- Расписание -->
             <section id="schedule">
                 <h2>Расписание</h2>
-                <div id="schedule-container"></div>
+                <div class="schedule">
+                    <div class="schedule-item">
+                        <h3>Понедельник, 1 сентября</h3>
+                        <p>Математика: 09:00 - 10:30, Кабинет 301</p>
+                        <p>Физика: 11:00 - 12:30, Кабинет 302</p>
+                        <p>Преподаватели: Иванов Иван Иванович, Петров Петр Петрович</p>
+                    </div>
+                    <div class="schedule-item">
+                        <h3>Вторник, 2 сентября</h3>
+                        <p>Литература: 10:00 - 11:30, Кабинет 303</p>
+                        <p>История: 12:00 - 13:30, Кабинет 304</p>
+                        <p>Преподаватели: Сидоров Сидор Сидорович, Козлов Козел Козлович</p>
+                    </div>
+                </div>
             </section>
+
+            <!-- Домашние задания -->
             <section id="homework">
                 <h2>Домашние задания</h2>
-                <ul id="homework-list"></ul>
+                <div class="homework">
+                    <div class="homework-item">
+                        <h3>Математика - Задание 1</h3>
+                        <p>Дата сдачи: 5 сентября</p>
+                        <p>Задано: 1 сентября</p>
+                        <p>Описание: Решить задачи на стр. 25-30</p>
+                        <p>Критерии: Правильное решение задач</p>
+                        <a href="https://example.com">Тест онлайн</a>
+                    </div>
+                    <div class="homework-item">
+                        <h3>Физика - Задание 2</h3>
+                        <p>Дата сдачи: 7 сентября</p>
+                        <p>Задано: 2 сентября</p>
+                        <p>Описание: Подготовить реферат по теме "Законы Ньютона"</p>
+                        <p>Критерии: Полнота исследования, грамотность</p>
+                        <a href="https://example.com">Тест онлайн</a>
+                    </div>
+                </div>
             </section>
+
+            <!-- Преподаватели -->
             <section id="teachers">
                 <h2>Преподаватели</h2>
-                <ul id="teachers-list"></ul>
+                <div class="teachers">
+                    <div class="teacher-item">
+                        <h3>Иванов Иван Иванович</h3>
+                        <p>Предметы: Математика</p>
+                        <p>Контактные данные: Иванов@example.com</p>
+                        <p>Кабинет: 301</p>
+                    </div>
+                    <div class="teacher-item">
+                        <h3>Петров Петр Петрович</h3>
+                        <p>Предметы: Физика</p>
+                        <p>Контактные данные: Petrov@example.com</p>
+                        <p>Кабинет: 302</p>
+                    </div>
+                </div>
             </section>
+
+            <!-- Новости -->
             <section id="news">
                 <h2>Новости</h2>
-                <div id="news-container"></div>
+                <div class="news">
+                    <div class="news-item">
+                        <h3>Начало учебного года</h3>
+                        <p>1 сентября начинается новый учебный год. Будьте готовы к новым вызовам и достижениям!</p>
+                    </div>
+                    <div class="news-item">
+                        <h3>Изменение расписания</h3>
+                        <p>С 5 сентября вводятся изменения в расписание. Ознакомьтесь с новым расписанием на сайте.</p>
+                    </div>
+                </div>
             </section>
+
+            <!-- Календарь -->
             <section id="calendar">
                 <h2>Календарь</h2>
-                <div id="calendar-container"></div>
+                <div class="calendar">
+                    <div class="calendar-item">
+                        <h3>Каникулы</h3>
+                        <p>С 20 декабря по 10 января. Удачных каникул!</p>
+                    </div>
+                    <div class="calendar-item">
+                        <h3>Экзамены</h3>
+                        <p>Экзамены с 15 по 30 мая. Подготовьтесь заранее!</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Уведомления -->
+            <section id="notifications">
+                <h2>Уведомления</h2>
+                <div class="notifications">
+                    <div class="notification-item">
+                        <h3>Изменения в расписании</h3>
+                        <p>Обратите внимание на изменения в расписании на следующей неделе.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Перерывы -->
+            <section id="breaks">
+                <h2>Перерывы</h2>
+                <div class="breaks">
+                    <div class="break-item">
+                        <h3>Перерыв на обед</h3>
+                        <p>12:30 - 13:00</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Каникулы -->
+            <section id="holidays">
+                <h2>Каникулы</h2>
+                <div class="holidays">
+                    <div class="holiday-item">
+                        <h3>Весенние каникулы</h3>
+                        <p>1 апреля - 10 апреля</p>
+                    </div>
+                </div>
             </section>
         </div>
     </main>
     <footer>
         <div class="container">
-            <p>&copy; 2024 Все права защищены. <a href="https://t.me/bxnder">Поддержка</a></p>
+            <p>&copy; 2024 Электронный журнал. <a href="https://t.me/bxnder">Поддержка</a></p>
         </div>
     </footer>
-    <script src="assets/script.js"></script>
 </body>
 </html>
