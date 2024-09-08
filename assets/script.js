@@ -2,24 +2,19 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('assets/data.json')
         .then(response => response.json())
         .then(data => {
-            const scheduleCalendar = document.getElementById('schedule-calendar');
+            const scheduleContainer = document.getElementById('schedule-container');
             const homeworkList = document.getElementById('homework-list');
+            const teachersList = document.getElementById('teachers-list');
 
-            // Очистить предыдущие элементы
-            scheduleCalendar.innerHTML = '';
-            homeworkList.innerHTML = '';
-
-            // Заполняем календарь
-            data.schedule.forEach(day => {
-                const dayDiv = document.createElement('div');
-                dayDiv.className = 'calendar-day';
-                dayDiv.innerHTML = `
-                    <h3>${day.date}</h3>
-                    <ul>
-                        ${day.classes.map(cls => `<li>${cls.time} - ${cls.subject}</li>`).join('')}
-                    </ul>
+            // Заполняем расписание
+            data.schedule.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'schedule-item';
+                div.innerHTML = `
+                    <h3>${item.date}</h3>
+                    <p>${item.time} - ${item.subject}</p>
                 `;
-                scheduleCalendar.appendChild(dayDiv);
+                scheduleContainer.appendChild(div);
             });
 
             // Заполняем домашние задания
@@ -27,6 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const li = document.createElement('li');
                 li.textContent = `${item.title} - ${item.description}`;
                 homeworkList.appendChild(li);
+            });
+
+            // Заполняем преподавателей
+            data.teachers.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - ${item.subject}`;
+                teachersList.appendChild(li);
             });
         });
 });
