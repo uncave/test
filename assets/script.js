@@ -4,20 +4,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Функция для загрузки расписания
     function loadSchedule() {
-        scheduleData.forEach(day => {
-            let row = document.createElement('tr');
+        for (const [day, lessons] of Object.entries(scheduleData)) {
+            let dayRow = document.createElement('tr');
             let dayCell = document.createElement('td');
-            dayCell.innerHTML = `<strong>${day.day}</strong>`;
-            row.appendChild(dayCell);
+            dayCell.colSpan = 3; // Количество колонок в таблице
+            dayCell.innerHTML = `<strong>${day}</strong>`;
+            dayRow.appendChild(dayCell);
+            scheduleTable.appendChild(dayRow);
 
-            day.lessons.forEach(lesson => {
+            lessons.forEach(lesson => {
                 let lessonRow = document.createElement('tr');
                 let timeCell = document.createElement('td');
                 let subjectCell = document.createElement('td');
                 let roomCell = document.createElement('td');
 
                 timeCell.innerText = lesson.time;
-                subjectCell.innerText = lesson.subject;
+                subjectCell.innerText = lesson.subject.replace(/\n/g, '<br>');
                 roomCell.innerText = lesson.room;
 
                 lessonRow.appendChild(timeCell);
@@ -25,29 +27,25 @@ document.addEventListener("DOMContentLoaded", function() {
                 lessonRow.appendChild(roomCell);
                 scheduleTable.appendChild(lessonRow);
             });
-        });
+        }
     }
 
     // Функция для загрузки домашних заданий
     function loadHomework() {
-        homeworkData.forEach(day => {
-            let row = document.createElement('tr');
+        homeworkData.forEach(assignment => {
+            let homeworkRow = document.createElement('tr');
             let dateCell = document.createElement('td');
-            dateCell.innerHTML = `<strong>${day.date}</strong>`;
-            row.appendChild(dateCell);
+            let subjectCell = document.createElement('td');
+            let descriptionCell = document.createElement('td');
 
-            day.assignments.forEach(assignment => {
-                let assignmentRow = document.createElement('tr');
-                let subjectCell = document.createElement('td');
-                let descriptionCell = document.createElement('td');
+            dateCell.innerText = assignment.date;
+            subjectCell.innerText = assignment.subject;
+            descriptionCell.innerText = assignment.description;
 
-                subjectCell.innerText = assignment.subject;
-                descriptionCell.innerText = assignment.description;
-
-                assignmentRow.appendChild(subjectCell);
-                assignmentRow.appendChild(descriptionCell);
-                homeworkTable.appendChild(assignmentRow);
-            });
+            homeworkRow.appendChild(dateCell);
+            homeworkRow.appendChild(subjectCell);
+            homeworkRow.appendChild(descriptionCell);
+            homeworkTable.appendChild(homeworkRow);
         });
     }
 
