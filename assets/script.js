@@ -1,45 +1,29 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Загрузка и отображение расписания
-    fetch('schedule.json')
-        .then(response => response.json())
-        .then(data => {
-            const scheduleTable = document.getElementById('schedule-table');
-            data.schedule.forEach(day => {
-                const dateRow = document.createElement('tr');
-                const dateCell = document.createElement('td');
-                dateCell.colSpan = 3;
-                dateCell.textContent = day.date;
-                dateRow.appendChild(dateCell);
-                scheduleTable.appendChild(dateRow);
+document.addEventListener('DOMContentLoaded', function () {
+    const scheduleTable = document.getElementById('schedule-table');
+    const homeworkTable = document.getElementById('homework-table');
 
-                day.lessons.forEach(lesson => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${lesson.time}</td>
-                        <td>${lesson.subject}</td>
-                        <td>${lesson.room}</td>
-                        <td>${lesson.teacher}</td>
-                    `;
-                    scheduleTable.appendChild(row);
-                });
-            });
+    scheduleData.forEach(day => {
+        const row = document.createElement('tr');
+        const dayCell = document.createElement('td');
+        dayCell.textContent = day.day;
+        row.appendChild(dayCell);
+
+        day.classes.forEach(cls => {
+            const classRow = document.createElement('tr');
+            const classCell = document.createElement('td');
+            classCell.innerHTML = `<strong>${cls.subject}</strong><br>${cls.time}<br>${cls.room}<br>${cls.teacher}`;
+            classRow.appendChild(classCell);
+            scheduleTable.appendChild(classRow);
         });
 
-    // Загрузка и отображение домашних заданий
-    fetch('homework.json')
-        .then(response => response.json())
-        .then(data => {
-            const homeworkTable = document.getElementById('homework-table');
-            data.homework.forEach(hw => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${hw.date_assigned}</td>
-                    <td>${hw.subject}</td>
-                    <td>${hw.due_date}</td>
-                    <td>${hw.description}</td>
-                    <td>${hw.link ? `<a href="${hw.link}" target="_blank">Перейти</a>` : '—'}</td>
-                `;
-                homeworkTable.appendChild(row);
-            });
-        });
+        scheduleTable.appendChild(row);
+    });
+
+    homeworkData.forEach(hw => {
+        const row = document.createElement('tr');
+        const taskCell = document.createElement('td');
+        taskCell.innerHTML = `<strong>${hw.subject}</strong><br>${hw.task}<br>Сдать до: ${hw.dueDate}`;
+        row.appendChild(taskCell);
+        homeworkTable.appendChild(row);
+    });
 });
